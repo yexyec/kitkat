@@ -64,12 +64,7 @@ body {
     to { transform: scaleX(1); }
 }
 
-/* NORMAL CONTENT */
-.about {
-    padding: 60px 20px;
-    text-align: center;
-    background: url("tulips.jpg") 50% 89% / cover no-repeat;
-}
+
 
 h3 {
     color: #fff;
@@ -437,7 +432,6 @@ footer {
 /* small improvements for medium widths */
 @media (max-width: 900px) {
     .letters h3, .floating-memories h3 { font-size: clamp(1.4rem, 4.6vw, 2rem); }
-    .about { padding: 40px 16px; background-position: 50% 80%; }
 }
 
 /* keep hearts canvas full screen but low-impact on mobile */
