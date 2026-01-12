@@ -346,3 +346,102 @@ footer {
 }
 
 /* ...existing code... */
+
+/* ...existing code... */
+
+/* ===== MOBILE / RESPONSIVE ADJUSTMENTS (append at EOF) ===== */
+
+/* safer hero height on mobile, avoid oversized 100vh issues on mobile browsers */
+.first {
+    height: min(100vh, 720px);
+    background-attachment: scroll; /* better behavior on many mobile browsers */
+}
+
+/* scale hero text fluidly */
+.first h2 {
+    font-size: clamp(2rem, 8vw, 5rem);
+    line-height: 1.05;
+    padding: 0 12px;
+}
+
+.first p {
+    font-size: clamp(1rem, 5vw, 2rem);
+    padding: 0 14px;
+}
+
+/* decorative line becomes fluid */
+.decor {
+    width: min(520px, 80%);
+}
+
+/* gallery: adapt card sizes and spacing for smaller viewports */
+.gallery { padding: 28px 8px; }
+.card {
+    width: clamp(140px, 30vw, 200px);
+    margin-right: clamp(12px, 3vw, 20px);
+    border-radius: 12px;
+}
+
+/* make auto-scroll faster on small screens so loop feels natural */
+@media (max-width: 600px) {
+    .scroll-track { animation-duration: 20s; }
+}
+
+/* cover and book scale */
+.book {
+    width: clamp(160px, 36vw, 220px);
+    height: clamp(220px, 46vw, 300px);
+}
+
+.cover { font-size: clamp(1.2rem, 4.6vw, 2rem); }
+
+/* grid/card layout tweaks */
+.card-grid {
+    gap: clamp(16px, 4vw, 30px);
+    padding: 0 12px;
+}
+
+/* floating memories: reduce padding & gaps on mobile */
+.floating-memories { padding: clamp(48px, 10vw, 120px) 16px; }
+.floating-wrapper { gap: clamp(40px, 8vw, 100px); max-width: 94%; }
+
+/* memory item -> column on narrow screens, with readable text sizes */
+.memory-item { gap: clamp(12px, 4vw, 40px); }
+.memory-text { font-size: clamp(1rem, 4.2vw, 1.6rem); line-height: 1.5; }
+
+/* photo card scale */
+.memory-card { width: clamp(160px, 44vw, 260px); padding: 10px; }
+
+/* music-player reposition & scale for small screens */
+.music-player {
+    bottom: 12px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+}
+
+/* reduce heavy shadows on very small devices for performance */
+@media (max-width: 420px) {
+    .memory-card, .card { box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+    .first h2 { letter-spacing: 0.6px; }
+    .decor { height: 1px; }
+    .scroll-hint { bottom: 18px; font-size: 12px; }
+}
+
+/* ensure small-screen interactions remain usable */
+.book, .card, .memory-card { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+
+/* small improvements for medium widths */
+@media (max-width: 900px) {
+    .letters h3, .floating-memories h3 { font-size: clamp(1.4rem, 4.6vw, 2rem); }
+    .about { padding: 40px 16px; background-position: 50% 80%; }
+}
+
+/* keep hearts canvas full screen but low-impact on mobile */
+#hearts { pointer-events: none; }
+
+/* end responsive adjustments */
+/* ...existing code... */
