@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy 18th Birthday, My Love</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <section class="first">
+    <hr class="decor top">
+    <h2>Happy 18th Birthday</h2>
+    <p>to the girl who loves orange and me!</p>
+    <hr class="decor bottom">
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll down</span>
+      <div class="arrow"></div>
+    </div>
+  </section>
+
+  <div class="music-player">
+    <audio id="birthdayMusic" loop>
+      <source src="sparks.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <button id="musicBtn" aria-pressed="false">🔊</button>
+  </div>
+
+  <section class="floating-memories">
+    <div class="floating-wrapper">
+
+      <div class="memory-item right">
+        <div class="memory-text left">
+          <p>Hiii myy prettyyyy loveee! Happpyyyy 18th birthdayyy langggaa nakooo, welcomee to legality bebee! I just want to say that i reallyy admire how strong you've become, you survived those days without anyone's help for many years and will still survive the upcoming one's, hoorayyyyyy!!</p>
+        </div>
+        <div class="memory-card">
+          <img src="1.jpg" alt="Photo of us">
+        </div>
+      </div>
+
+      <div class="memory-item left">
+        <div class="memory-card">
+          <img src="6.jpeg" alt="Happy moment">
+        </div>
+        <div class="memory-text right">
+          <p>Your existence brings peace to the people around you that's why we love being with you bebee bahalag palaaway kas ako🙄🙄</p>
+        </div>
+      </div>
+
+      <div class="memory-item right">
+        <div class="memory-text">
+          <p>Enjoyy lifee na bebee, don't think about what other people would say about you, let them be. And pls dont be so indecisive na kay naa nakas adulthood tabang HAHAHAH</p>
+        </div>
+        <div class="memory-card">
+          <img src="11.jpeg" alt="Another memory">
+        </div>
+      </div>
+
+      <div class="memory-item left">
+        <div class="memory-card">
+          <img src="9.jpeg" alt="Prayer moment">
+        </div>
+        <div class="memory-text right">
+          <p>Anyywaysss, praying more success and blessings to come in your life babyy! Always be grateful for what you have, and don't forget to thank Him for the life He has given youuu byy!</p>
+        </div>
+      </div>
+
+      <div class="memory-item right">
+        <div class="memory-text">
+          <p>I loveee youuu alwayss my adult baby! Wishing you all the best in life, love!</p>
+        </div>
+        <div class="memory-card">
+          <img src="4.jpeg" alt="Smiling photo">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <canvas id="hearts" aria-hidden="true"></canvas>
+
+  <section class="gallery">
+    <div class="scroll-container">
+      <div class="scroll-track">
+        <div class="card"><img src="col1.jpg" alt="Photo 1"></div>
+        <div class="card"><img src="col2.jpg" alt="Photo 2"></div>
+        <div class="card"><img src="col3.jpg" alt="Photo 3"></div>
+        <div class="card"><img src="col4.jpg" alt="Photo 4"></div>
+        <div class="card"><img src="col1.jpg" alt="Photo 1"></div>
+        <div class="card"><img src="col2.jpg" alt="Photo 2"></div>
+        <div class="card"><img src="col3.jpg" alt="Photo 3"></div>
+        <div class="card"><img src="col4.jpg" alt="Photo 4"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="letters">
+    <h3>Upat ka butang na unta madumduman nimo ALWAYS, hopefully</h3>
+
+    <div class="card-grid">
+      <div class="book">
+        <div class="page"><p>Always be grateful to what life gives you.</p></div>
+        <div class="cover"><p>1</p></div>
+      </div>
+
+      <div class="book">
+        <div class="page"><p>You only get one life and it's your duty to live it as fully as possible! <br> - champagnekins</p></div>
+        <div class="cover"><p>2</p></div>
+      </div>
+
+      <div class="book">
+        <div class="page"><p>I’m proud of the woman you’re becoming.</p></div>
+        <div class="cover"><p>3</p></div>
+      </div>
+
+      <div class="book">
+        <div class="page"><p>Don't risk your peace to things that feels uncertain.</p></div>
+        <div class="cover"><p>4</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <h3>Happy 18th Birthday, my love!</h3>
+    <p class="par">You’re officially 18 today, and I wanted to give you something that lasts longer than a story post. <br>This page might be so short but it contains all the things I wanted to say for you on your special day. Surii byy eto lang kaya kowss</p>
+  </section>
+
+  <footer>
+    <p>Yours truly, jejepax</p>
+  </footer>
+
+<script>
+/* ====== Gallery auto-scroll (defensive) ====== */
+const track = document.querySelector('.scroll-track');
+const container = document.querySelector('.scroll-container');
+
+if (track && container) {
+  // duplicate content to make the scroll seamless
+  track.innerHTML += track.innerHTML;
+
+  let speed = 0.3; // pixels per frame
+  let scroll = 0;
+
+  function scrollGallery() {
+    scroll += speed;
+    // when we've scrolled half (original content length), reset
+    if (scroll >= track.scrollWidth / 2) scroll = 0;
+    track.style.transform = `translateX(-${scroll}px)`;
+    requestAnimationFrame(scrollGallery);
+  }
+  scrollGallery();
+}
+
+/* ====== Scroll hint fade ====== */
+const hint = document.querySelector('.scroll-hint');
+if (hint) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      hint.style.opacity = '0';
+      hint.style.transition = 'opacity 0.6s ease';
+      hint.style.pointerEvents = 'none';
+    }
+  });
+}
+
+/* ====== Book toggles ====== */
+const books = document.querySelectorAll('.book');
+books.forEach(book => book.addEventListener('click', () => book.classList.toggle('open')));
+
+/* ====== Music player toggle ====== */
+const music = document.getElementById('birthdayMusic');
+const btn = document.getElementById('musicBtn');
+if (music && btn) {
+  btn.addEventListener('click', () => {
+    if (music.paused) {
+      music.play();
+      btn.textContent = "🔇";
+      btn.setAttribute('aria-pressed', 'true');
+    } else {
+      music.pause();
+      btn.textContent = "🔊";
+      btn.setAttribute('aria-pressed', 'false');
+    }
+  });
+}
+
+/* ====== Scroll fade-in for memory items ====== */
+const items = document.querySelectorAll('.memory-item');
+if ('IntersectionObserver' in window && items.length) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.3 });
+
+  items.forEach(item => observer.observe(item));
+} else {
+  // fallback: show all
+  items.forEach(i => i.classList.add('show'));
+}
+
+/* ====== Heart particles on click ====== */
+const canvas = document.getElementById('hearts');
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  let hearts = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  document.addEventListener('click', e => {
+    for (let i = 0; i < 12; i++) {
+      hearts.push({
+        x: e.clientX,
+        y: e.clientY,
+        size: Math.random() * 6 + 4,
+        speedY: Math.random() * -2 - 1,
+        speedX: (Math.random() - 0.5) * 2,
+        alpha: 1
+      });
+    }
+  });
+
+  function drawHearts() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = hearts.length - 1; i >= 0; i--) {
+      const h = hearts[i];
+      h.y += h.speedY;
+      h.x += h.speedX;
+      h.alpha -= 0.02;
+
+      ctx.globalAlpha = Math.max(0, h.alpha);
+      ctx.fillStyle = '#ff6b81';
+      ctx.beginPath();
+      ctx.arc(h.x, h.y, h.size, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (h.alpha <= 0) hearts.splice(i, 1);
+    }
+
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(drawHearts);
+  }
+  drawHearts();
+}
+</script>
+
+</body>
+</html>
